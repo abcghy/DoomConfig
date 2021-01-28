@@ -64,6 +64,5 @@
 
 (setq which-key-idle-delay 0.5)
 
-;; after org mode, enable valign-mode
-;; valign is conflict with doomemacs' config
-(add-hook 'org-mode-hook #'valign-mode)
+(setq org-roam-directory "~/Dropbox/org-roam")
+(add-hook 'after-init-hook 'org-roam-mode)
