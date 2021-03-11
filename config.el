@@ -76,3 +76,6 @@
 
 (setq which-key-idle-delay 0.5)
 (add-hook 'after-init-hook 'org-roam-mode)
+
+;; add ~ pair for org mode
+(sp-local-pair 'org-mode "~" "~")
