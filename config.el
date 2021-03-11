@@ -28,6 +28,10 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
 
+;; https://www.orgroam.com/manual.html#Getting-Started
+(setq org-roam-directory "~/Dropbox/org-roam/")
+
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org/")
@@ -53,6 +57,13 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(map! (:leader
+       (:prefix ("r" . "Org Roam")
+        :desc "find file" :nv "f" #'org-roam-find-file
+        :desc "insert file" :nv "i" #'org-roam-insert
+        (:prefix ("t" . "tag")
+         :desc "add tag" :nv "n" #'org-roam-tag-add
+         :desc "delete tag" :nv "d" #'org-roam-tag-delete))))
 
 (evil-define-key nil evil-normal-state-map
                  "J" "5j"
@@ -64,6 +75,4 @@
 (setq doom-localleader-key ",")
 
 (setq which-key-idle-delay 0.5)
-
-(setq org-roam-directory "~/Dropbox/org-roam")
 (add-hook 'after-init-hook 'org-roam-mode)
